@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Написать скрипт очистки директорий. На вход принимает путь к директории. Если директория существует, то удаляет в ней все файлы с расширениями .bak, .tmp, .backup.
+# Если директории нет, то выводит ошибку.
+
+dir_path=$1
+
+if [[ -e $dir_path ]] && [[ -d $dir_path ]]; then
+	rm *.bak *.tmp *.backup;
+else
+	echo "ERROR! $dir_path : this directory is not found!"; 
+	exit 1;
+fi
